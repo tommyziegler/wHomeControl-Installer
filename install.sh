@@ -1,3 +1,14 @@
+#!/bin/sh
+# install.sh
+#
+# This is the installation script for wHomeControl on a Rasbian RaspberryPi system.
+#
+# The script is doing following things
+#  -> Updating the system
+#  -> Installing wiringPi library (gpio-lib)
+#  -> Installing rcswitch-pi apps (api to access remote switches Elro and Rev)
+
+
 # Make sure only root can run this script
 if [ $(id -u) != 0 ]; then
    echo "This script must be run as root"
@@ -9,11 +20,7 @@ fi
 apt-get update
 apt-get upgrade -y
 
-# install git-core
-apt-get install git-core -y
-
-# install java
-
+# TODO: Check if Git and Java is installed
 
 # install wiringPi
 git clone git://git.drogon.net/wiringPi
