@@ -69,23 +69,23 @@ else
 fi
 
 # Check and install RCSwitch-Pi
-RCSWITCH_REV="/opt/rcswitch-pi/sendRev"
-RCSWITCH_ELRO="/opt/rcswitch-pi/sendElro"
-if [[ -f $RCSWITCH_REV && -f $RCSWITCH_ELRO ]];
-then
-   echo "RCSwitch-Pi is already installed [skip]"
-else
-   echo "RCSwitch-Pi does not exist on Pi [install...]."
-   
-   # install rcswitch-pi
-   git clone https://github.com/tommyziegler/rcswitch-pi
-   cd rcswitch-pi
-   make
-   mkdir -p /opt/rcswitch-pi
-   mv sendRev sendElro /opt/rcswitch-pi/
-   cd ..
-   rm -rf rcswitch-pi
-fi
+#RCSWITCH_REV="/opt/rcswitch-pi/sendRev"
+#RCSWITCH_ELRO="/opt/rcswitch-pi/sendElro"
+#if [[ -f $RCSWITCH_REV && -f $RCSWITCH_ELRO ]];
+#then
+#   echo "RCSwitch-Pi is already installed [skip]"
+#else
+#   echo "RCSwitch-Pi does not exist on Pi [install...]."
+#   
+#   # install rcswitch-pi
+#   git clone https://github.com/tommyziegler/rcswitch-pi
+#   cd rcswitch-pi
+#   make
+#   mkdir -p /opt/rcswitch-pi
+#   mv sendRev sendElro /opt/rcswitch-pi/
+#   cd ..
+#   rm -rf rcswitch-pi
+#fi
 
 # 5.) Check and install wHomeControl
 WHOMECONTROL_DIR="/opt/wHomeControl"
