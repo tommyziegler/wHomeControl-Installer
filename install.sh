@@ -22,12 +22,26 @@ apt-get upgrade -y
 
 # TODO: Check if Git and Java is installed
 
-# install wiringPi
-git clone git://git.drogon.net/wiringPi
-cd wiringPi
-./build
-cd ..
-rm -rf wiringPi
+
+WIRINGPI="/usr/local/lib/libwiringPi.so"
+
+if [ -f $WIRINGPI ];
+then
+   echo "wiringPi is already installed [skip]"
+else
+   echo "wiringPi does not exist on Pi [install...]."
+   
+   # install wiringPi
+   git clone git://git.drogon.net/wiringPi
+   cd wiringPi
+   ./build
+   cd ..
+   rm -rf wiringPi   
+   
+fi
+
+exit
+
 
 # install rcswitch-pi
 git clone https://github.com/tommyziegler/rcswitch-pi
