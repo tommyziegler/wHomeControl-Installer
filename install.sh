@@ -68,11 +68,11 @@ then
    
    cd home.pi
    git pull
-   cd..
+   cd ..
    
    cd rcswitch-rest
    git pull
-   cd..   
+   cd ..   
    
 else
    echo "wHomeControl does not exist on Pi [install...]."
