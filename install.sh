@@ -51,11 +51,6 @@ else
    
 fi
 
-
-exit
-
-
-
 # Check and install libWiringPi
 WIRINGPI="/usr/local/lib/libwiringPi.so"
 if [ -f $WIRINGPI ];
