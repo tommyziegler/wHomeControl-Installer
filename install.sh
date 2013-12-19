@@ -85,7 +85,7 @@ fi
 #   echo "RCSwitch-Pi does not exist on Pi [install...]."
 #   
 #   # install rcswitch-pi
-#   git clone https://github.com/tommyziegler/rcswitch-pi
+#   git clone https://github.com/wHomeControl/rcswitch-pi
 #   cd rcswitch-pi
 #   make
 #   mkdir -p /opt/rcswitch-pi
@@ -117,12 +117,12 @@ else
    cd $WHOMECONTROL_DIR
    
    
-   git clone https://github.com/tommyziegler/home.pi.git
+   git clone https://github.com/wHomeControl/home.pi.git
    cd home.pi
    # nothing needed yet
    cd ..
    
-   git clone https://github.com/tommyziegler/rcswitch-rest.git
+   git clone https://github.com/wHomeControl/rcswitch-rest.git
    cd rcswitch-rest
    /opt/node/bin/npm install
    cd ..
