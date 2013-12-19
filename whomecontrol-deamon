@@ -1,0 +1,42 @@
+#!/bin/bash
+
+FOLDER1=/opt/wHomeControl/home.pi
+DAEMON1=/opt/node/bin/node
+ARGS1="/opt/wHomeControl/home.pi/scripts/web-server.js"
+PIDFILE1=/var/run/home-pi.pid
+
+FOLDER2=/opt/wHomeControl/rcswitch-rest
+DAEMON2=/opt/node/bin/node
+ARGS2="/opt/wHomeControl/rcswitch-rest/server.js"
+PIDFILE2=/var/run/rcswitch-rest.pid
+
+case "$1" in
+  start)
+    echo "Starting server"
+
+    /sbin/start-stop-daemon --start --chdir $FOLDER1 --pidfile $PIDFILE1 \
+        --user root --group root \
+        -b --make-pidfile \
+        --chuid root \
+        --exec $DAEMON1 $ARGS1
+
+    /sbin/start-stop-daemon --start --chdir $FOLDER2 --pidfile $PIDFILE2 \
+        --user root --group root \
+        -b --make-pidfile \
+        --chuid root \
+        --exec $DAEMON2 $ARGS2
+    ;;
+  stop)
+    echo "Stopping server"
+
+    /sbin/start-stop-daemon --stop --pidfile $PIDFILE1 --verbose
+
+    /sbin/start-stop-daemon --stop --pidfile $PIDFILE2 --verbose
+    ;;
+  *)
+    echo "Usage: /etc/init.d/whomecontrol {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
