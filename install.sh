@@ -133,7 +133,8 @@ fi
 # 5 a.) Check and install wHomeControl Deamon
 WHOMECONTROL_DEAMON_NAME="whomecontrol"
 WHOMECONTROL_DEAMON_PATH="/etc/init.d/$WHOMECONTROL_DEAMON_NAME"
-WHOMECONTROL_DEAMON_GITURL="https://raw.github.com/tommyziegler/wHomeControl-Installer/master/whomecontrol-deamon"
+WHOMECONTROL_DEAMON_GITURL="https://raw.github.com/wHomeControl/wHomeControl-Installer/master/whomecontrol-deamon"
+
 if [ -f $WHOMECONTROL_DEAMON_PATH ];
 then
    echo " -> Deamon is already installed [skip]"
