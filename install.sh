@@ -72,16 +72,17 @@ else
    git clone https://github.com/tommyziegler/rcswitch-rest.git
 
    # 5 a.) Check and install wHomeControl Deamon
-   WHOMECONTROLDEAMON="/etc/init.d/whomecontrol"
-   WHOMECONTROL_GITURL="https://raw.github.com/tommyziegler/wHomeControl-Installer/master/whomecontrol-deamon"
+   WHOMECONTROL_DEAMON_NAME="whomecontrol"
+   WHOMECONTROL_DEAMON_PATH="/etc/init.d/$WHOMECONTROL_DEAMON_NAME"
+   WHOMECONTROL_DEAMON_GITURL="https://raw.github.com/tommyziegler/wHomeControl-Installer/master/whomecontrol-deamon"
    if [ -f $WHOMECONTROLDEAMON ];
    then
       echo " -> Deamon is already installed [skip]"
    else
       echo " -> Deamon does not exist on Pi [install...]."
 
-      curl -o $WHOMECONTROLDEAMON $WHOMECONTROL_GITURL
-      update-rc.d whomecontrol defaults
-      #mkdir -p $WHOMECONTROLDEAMON
+      curl -o $WHOMECONTROL_DEAMON_PATH $WHOMECONTROL_DEAMON_GITURL
+      chmod +x $WHOMECONTROL_DEAMON_PATH
+      update-rc.d $WHOMECONTROL_DEAMON_NAME defaults
    fi
 fi
