@@ -81,6 +81,7 @@ else
       echo " -> Deamon does not exist on Pi [install...]."
 
       curl -o $WHOMECONTROLDEAMON $WHOMECONTROL_GITURL
+      update-rc.d whomecontrol defaults
       #mkdir -p $WHOMECONTROLDEAMON
    fi
 fi
