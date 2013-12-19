@@ -58,3 +58,13 @@ else
    cd ..
    rm -rf rcswitch-pi
 fi
+
+WHOMECONTROL_DIR="/opt/wHomeControl"
+
+if [ -d $WHOMECONTROL_DIR ];
+then
+   echo "RCSwitch-Pi is already installed [skip]"
+else
+   mkdir -p $WHOMECONTROL_DIR
+
+fi
