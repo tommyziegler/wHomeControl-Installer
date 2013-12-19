@@ -62,7 +62,18 @@ fi
 WHOMECONTROL_DIR="/opt/wHomeControl"
 if [ -d $WHOMECONTROL_DIR ];
 then
-   echo "wHomeControl is already installed [skip]"
+   echo "wHomeControl is already installed [check updates]"
+   
+   cd $WHOMECONTROL_DIR
+   
+   cd home.pi
+   git pull
+   cd..
+   
+   cd rcswitch-rest
+   git pull
+   cd..   
+   
 else
    echo "wHomeControl does not exist on Pi [install...]."
    
@@ -70,19 +81,19 @@ else
    cd $WHOMECONTROL_DIR
    git clone https://github.com/tommyziegler/home.pi.git
    git clone https://github.com/tommyziegler/rcswitch-rest.git
+fi
 
-   # 5 a.) Check and install wHomeControl Deamon
-   WHOMECONTROL_DEAMON_NAME="whomecontrol"
-   WHOMECONTROL_DEAMON_PATH="/etc/init.d/$WHOMECONTROL_DEAMON_NAME"
-   WHOMECONTROL_DEAMON_GITURL="https://raw.github.com/tommyziegler/wHomeControl-Installer/master/whomecontrol-deamon"
-   if [ -f $WHOMECONTROLDEAMON ];
-   then
-      echo " -> Deamon is already installed [skip]"
-   else
-      echo " -> Deamon does not exist on Pi [install...]."
+# 5 a.) Check and install wHomeControl Deamon
+WHOMECONTROL_DEAMON_NAME="whomecontrol"
+WHOMECONTROL_DEAMON_PATH="/etc/init.d/$WHOMECONTROL_DEAMON_NAME"
+WHOMECONTROL_DEAMON_GITURL="https://raw.github.com/tommyziegler/wHomeControl-Installer/master/whomecontrol-deamon"
+if [ -f $WHOMECONTROL_DEAMON_NAME ];
+then
+   echo " -> Deamon is already installed [skip]"
+else
+   echo " -> Deamon does not exist on Pi [install...]."
 
-      curl -o $WHOMECONTROL_DEAMON_PATH $WHOMECONTROL_DEAMON_GITURL
-      chmod +x $WHOMECONTROL_DEAMON_PATH
-      update-rc.d $WHOMECONTROL_DEAMON_NAME defaults
-   fi
+   curl -o $WHOMECONTROL_DEAMON_PATH $WHOMECONTROL_DEAMON_GITURL
+   chmod +x $WHOMECONTROL_DEAMON_PATH
+   update-rc.d $WHOMECONTROL_DEAMON_NAME defaults
 fi
