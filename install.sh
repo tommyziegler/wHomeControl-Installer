@@ -108,8 +108,10 @@ else
    
    mkdir -p $WHOMECONTROL_DIR
    cd $WHOMECONTROL_DIR
+   
+   
    git clone https://github.com/tommyziegler/home.pi.git
-   cd rcswitch-rest
+   cd home.pi
    # nothing needed yet
    cd ..
    
