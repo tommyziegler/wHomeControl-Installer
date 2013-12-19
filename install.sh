@@ -8,6 +8,8 @@
 #  -> Installing wiringPi library (gpio-lib)
 #  -> Installing rcswitch-pi apps (api to access remote switches Elro and Rev)
 
+echo "Start"
+
 
 # Make sure only root can run this script
 if [ $(id -u) != 0 ]; then
