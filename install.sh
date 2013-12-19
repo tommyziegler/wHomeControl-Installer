@@ -114,7 +114,16 @@ else
    mkdir -p $WHOMECONTROL_DIR
    cd $WHOMECONTROL_DIR
    git clone https://github.com/tommyziegler/home.pi.git
+   cd rcswitch-rest
+   # nothing needed yet
+   cd ..
+   
    git clone https://github.com/tommyziegler/rcswitch-rest.git
+   cd rcswitch-rest
+   /opt/node/bin/npm install
+   cd ..
+
+
 fi
 
 # 5 a.) Check and install wHomeControl Deamon
