@@ -22,6 +22,35 @@ fi
 
 # TODO: Check if Git and Java is installed
 
+#Install NodeJS
+NODEJS_DIR="/opt/node"
+if [ -d NODEJS_DIR ];
+then
+   echo "NodeJS is already installed [skip]"
+else
+   echo "NodeJS does not exist on Pi [install...]."
+   
+   NODEJS_VERSION=v0.10.22
+
+   wget http://nodejs.org/dist/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-arm-pi.tar.gz
+   tar xvzf node-$NODEJS_VERSION-linux-arm-pi.tar.gz
+   
+   mkdir -p $NODEJS_DIR
+   sudo cp -r node-$NODEJS_VERSION-linux-arm-pi/* $NODEJS_DIR
+   
+   
+   rm -rf node-$NODEJS_VERSION-linux-arm-pi
+   rm node-$NODEJS_VERSION-linux-arm-pi.tar.gz
+   
+fi
+
+
+exit
+
+NODE_JS_HOME="/opt/node"
+PATH="$PATH:$NODE_JS_HOME/bin"
+export PATH
+
 # Check and install libWiringPi
 WIRINGPI="/usr/local/lib/libwiringPi.so"
 if [ -f $WIRINGPI ];
