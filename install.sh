@@ -24,7 +24,7 @@ fi
 
 #Install NodeJS
 NODEJS_DIR="/opt/node"
-if [ -d NODEJS_DIR ];
+if [ -d $NODEJS_DIR ];
 then
    echo "NodeJS is already installed [skip]"
 else
