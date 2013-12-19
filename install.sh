@@ -17,8 +17,8 @@ if [ $(id -u) != 0 ]; then
 fi
 
 # update the system
-apt-get update
-apt-get upgrade -y
+#apt-get update
+#apt-get upgrade -y
 
 # TODO: Check if Git and Java is installed
 
@@ -40,14 +40,21 @@ else
    
 fi
 
-exit
+RCSWITCH_REV="/opt/rcswitch-pi/sendRev"
+RCSWITCH_ELRO="/opt/rcswitch-pi/sendElro"
 
-
-# install rcswitch-pi
-git clone https://github.com/tommyziegler/rcswitch-pi
-cd rcswitch-pi
-make
-mkdir -p /opt/rcswitch-pi
-mv sendRev sendElro /opt/rcswitch-pi/
-cd ..
-rm -rf rcswitch-pi
+if [[ -f $RCSWITCH_REV && -f $RCSWITCH_ELRO ]];
+then
+   echo "RCSwitch-Pi is already installed [skip]"
+else
+   echo "RCSwitch-Pi does not exist on Pi [install...]."
+   
+   # install rcswitch-pi
+   git clone https://github.com/tommyziegler/rcswitch-pi
+   cd rcswitch-pi
+   make
+   mkdir -p /opt/rcswitch-pi
+   mv sendRev sendElro /opt/rcswitch-pi/
+   cd ..
+   rm -rf rcswitch-pi
+fi
