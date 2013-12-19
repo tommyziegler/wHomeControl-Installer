@@ -1,5 +1,15 @@
 #!/bin/bash
 
+### BEGIN INIT INFO
+# Provides:          whomecontrol
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start whomecontrol at boot time
+# Description:       Start whomecontrol Server at boot time
+### END INIT INFO
+
 FOLDER1=/opt/wHomeControl/home.pi
 DAEMON1=/opt/node/bin/node
 ARGS1="/opt/wHomeControl/home.pi/scripts/web-server.js"
