@@ -42,14 +42,19 @@ else
    rm -rf node-$NODEJS_VERSION-linux-arm-pi
    rm node-$NODEJS_VERSION-linux-arm-pi.tar.gz
    
+   
+   # Not needed yet
+   #
+   # NODE_JS_HOME="/opt/node"
+   # PATH="$PATH:$NODE_JS_HOME/bin"
+   # export PATH
+   
 fi
 
 
 exit
 
-NODE_JS_HOME="/opt/node"
-PATH="$PATH:$NODE_JS_HOME/bin"
-export PATH
+
 
 # Check and install libWiringPi
 WIRINGPI="/usr/local/lib/libwiringPi.so"
