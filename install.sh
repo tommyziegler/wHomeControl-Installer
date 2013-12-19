@@ -63,8 +63,10 @@ WHOMECONTROL_DIR="/opt/wHomeControl"
 
 if [ -d $WHOMECONTROL_DIR ];
 then
-   echo "RCSwitch-Pi is already installed [skip]"
+   echo "wHomeControl is already installed [skip]"
 else
+   echo "wHomeControl does not exist on Pi [install...]."
+   
    mkdir -p $WHOMECONTROL_DIR
 
 fi
