@@ -16,6 +16,11 @@ if [ $(id -u) != 0 ]; then
    exit
 fi
 
+if [ -f "/etc/init.d/whomecontrol" ];
+then
+   /etc/init.d/whomecontrol stop
+fi
+
 # update the system
 #apt-get update
 #apt-get upgrade -y
@@ -137,3 +142,5 @@ else
    chmod +x $WHOMECONTROL_DEAMON_PATH
    update-rc.d $WHOMECONTROL_DEAMON_NAME defaults
 fi
+
+/etc/init.d/whomecontrol start
